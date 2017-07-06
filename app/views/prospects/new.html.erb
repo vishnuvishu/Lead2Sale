@@ -1,0 +1,22 @@
+<h2> Add New prospect </h2> 
+
+<%= form_for @prospect do |f| %>
+
+<%= f.label :full_name  %>
+<%= f.text_field :full_name %><br/>
+
+<%= f.label :email %>
+<%= f.text_field :email %></br>
+
+<%= f.label :phone %>
+<%= f.text_field :phone %></br>
+
+<%= f.label :location %>
+<%= f.text_field :location %></br>
+
+<%= f.label :stage %>
+<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage" %></br>
+
+<%= f.submit "Submit" %>
+
+<% end %>

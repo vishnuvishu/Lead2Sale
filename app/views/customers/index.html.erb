@@ -1,0 +1,35 @@
+<h2>Customer Details </h2>
+
+  <% if @customers.empty? %>
+     <p> table is empty</p> 
+  <% else %>
+
+ <table>
+	<thead>
+		<tr>
+			<td>Sl.no</td>
+			<td>Full Name</td>
+			<td>Email</td>-
+			<td>Phone</td>
+			<td>Location</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @customers.each_with_index do |customer, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= customer.full_name %></td>
+				<td><%= customer.email %></td>
+				<td><%= customer.phone %></td>
+				<td><%= customer.location %></td>
+				<td><%= link_to "Show", customer_path(customer) %></td>
+				<td><%= link_to "Edit", edit_customer_path(customer) %></td>
+				<td><%= link_to "Delete", customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+ </table>
+
+ <% end %>
+
+ <%#= link_to "Add Prospect", new_prospect_path %>
