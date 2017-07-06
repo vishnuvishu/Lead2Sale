@@ -1,0 +1,16 @@
+<h2> Edit New Stage </h2> 
+
+<%= form_for @stage do |f| %>
+
+<%= f.label :name  %>
+<%= f.text_field :name %><br/>
+
+<%= f.label :description %>
+<%= f.text_field :description %></br>
+
+<%= f.label :interest_level %>
+<%= f.text_field :interest_level %></br>
+
+<%= f.submit "Submit" %>
+
+<% end %>

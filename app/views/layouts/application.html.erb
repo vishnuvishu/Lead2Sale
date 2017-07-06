@@ -5,10 +5,46 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item">
+      <img src="../images/l2s.jpg" alt="L2S">
+    </a>
+  </div>
+
+
+  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+  <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+  <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+  <!-- This "nav-menu" is hidden on mobile -->
+  <!-- Add the modifier "is-active" to display it on mobile -->
+  <div class="nav-right nav-menu">
+   
+    <%= link_to "Customers", customers_path , :class=> "nav-item"%> 
+        <%#= link_to "Users", users_path , :class=> "nav-item"%> 
+            <%= link_to "Roles", roles_path , :class=> "nav-item"%> 
+                <%= link_to "Prospects", prospects_path , :class=> "nav-item"%> 
+                    <%= link_to "Stages", stages_path , :class=> "nav-item"%> 
+   
+    
+
+   
+  </div>
+</nav>
+
+
  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+  <p class="alert"><%= alert %></p>
 
 
 <%= yield %>
