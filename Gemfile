@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'devise','~> 4.2'
-gem 'devise_invitable', '~> 1.7.0'
+gem 'devise'
+gem 'devise_invitable'
 gem 'cancancan'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

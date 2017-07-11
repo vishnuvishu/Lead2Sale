@@ -15,7 +15,7 @@
 <%= f.text_field :location %></br>
 
 <%= f.label :stage %>
-<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage" %></br>
+<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %></br>
 
 <%= f.submit "Submit" %>
 

@@ -1,0 +1,14 @@
+/* nav bar */
+
+nav.nav.has-shadow{
+	background: #3c8dbc;
+}
+
+.nav-item a.is-tab.is-active, a.nav-item.is-tab.is-active {
+    border-bottom: 3px solid #4a3131 !important;
+    color: #f7f7f7 !important;
+}
+
+.nav-item a, a.nav-item {
+    color: #d6d6d6 !important;
+}

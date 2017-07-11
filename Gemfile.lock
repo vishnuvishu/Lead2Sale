@@ -164,8 +164,8 @@ DEPENDENCIES
   byebug
   cancancan
   coffee-rails (~> 4.1.0)
-  devise (~> 4.2)
-  devise_invitable (~> 1.7.0)
+  devise
+  devise_invitable
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.6)

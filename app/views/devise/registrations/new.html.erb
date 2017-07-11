@@ -21,6 +21,23 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :full_name %><br />
+    <%= f.text_field :full_name %>
+  </div>
+
+   <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+
+   <div class="field">
+    <%= f.label :role_id %><br />
+    <%= f.collection_select :role_id, Role.all, :id, :name , prompt: "Select Role" %>
+  </div>
+
+   <%= link_to "Invite", new_user_invitation_path %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

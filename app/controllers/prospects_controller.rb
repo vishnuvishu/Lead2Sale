@@ -1,7 +1,9 @@
 class ProspectsController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@prospects = Prospect.all
+		@user = User.all
 	end
 
 	def new

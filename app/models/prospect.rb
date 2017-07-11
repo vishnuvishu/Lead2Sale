@@ -1,5 +1,5 @@
 class Prospect < ActiveRecord::Base
-		belongs_to :stage
+	belongs_to :stage
 	belongs_to :user, class_name: 'User'
 
 
