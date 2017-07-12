@@ -1,3 +1,9 @@
+body{
+	background-color: #ecf0f5;
+}
+
+
+
 /* nav bar */
 
 nav.nav.has-shadow{
@@ -11,4 +17,29 @@ nav.nav.has-shadow{
 
 .nav-item a, a.nav-item {
     color: #d6d6d6 !important;
+}
+
+h2.title.is-3{
+	font-size: 26px;
+    margin: 0px;
+    padding: 15px 0px;
+    color: #3c8dbc;
+}
+
+
+/* prospects index */
+
+a.button.is-success.is-outlined{
+	 margin: 15px 0px;
+	 float: right;
+}
+
+select#prospect_stage_id{
+	height: 25px;
+	width: 100%;
+}
+
+.modal-card-body input{
+	 height: 25px;
+	  width: 100%;
 }
