@@ -1,10 +1,17 @@
-<h2>Customer Details </h2>
+<div class="container is-fluid">
+
+<div class="columns">
+  <div class="column is-10">
+    <h2 class="title is-3">Customer Details </h2>
+  </div>
+ 
+</div>
 
   <% if @customers.empty? %>
      <p> table is empty</p> 
   <% else %>
 
- <table>
+ <table class="table is-bordered is-striped">
 	<thead>
 		<tr>
 			<td>Sl.no</td>
@@ -12,6 +19,7 @@
 			<td>Email</td>
 			<td>Phone</td>
 			<td>Location</td>
+			<th colspan="1"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,8 +30,8 @@
 				<td><%= customer.email %></td>
 				<td><%= customer.phone %></td>
 				<td><%= customer.location %></td>
-				<td><%= link_to "Show", customer_path(customer) %></td>
-				<td><%= link_to "Delete", customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!-- 			<td><%#= link_to "Show", customer_path(customer) %></td> -->
+				<td><%= link_to customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
 			</tr>
 		<% end %>
 	</tbody>
@@ -32,3 +40,4 @@
  <% end %>
 
  <%#= link_to "Add Prospect", new_prospect_path %>
+ </div>

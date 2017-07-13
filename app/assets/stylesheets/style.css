@@ -2,8 +2,6 @@ body{
 	background-color: #ecf0f5;
 }
 
-
-
 /* nav bar */
 
 nav.nav.has-shadow{
@@ -26,12 +24,11 @@ h2.title.is-3{
     color: #3c8dbc;
 }
 
-
 /* prospects index */
 
 a.button.is-success.is-outlined{
-	 margin: 15px 0px;
-	 float: right;
+	margin: 15px 0px;
+	float: right;
 }
 
 select#prospect_stage_id{
@@ -40,6 +37,62 @@ select#prospect_stage_id{
 }
 
 .modal-card-body input{
-	 height: 25px;
-	  width: 100%;
+	height: 25px;
+	width: 100%;
 }
+
+/* front page */
+
+section.front-page{
+	padding: 40px 0px;
+}
+
+.front-page i.fa.fa-user,
+.front-page i.fa.fa-handshake-o,
+.front-page i.fa.fa-cubes,
+.front-page i.fa.fa-thumbs-o-up{
+	font-size: 56px;
+	margin: 10px
+}
+
+.front-page .first-col span{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.front-page span#span1{
+	float: right;
+    font-size: 37px;
+    font-weight: bold;
+}
+
+.front-page span#span2{
+	float: right;
+}
+
+.front-page .top-line{
+	padding-bottom: 40px;
+}
+
+.top-line-1{
+	background-color: #347ab8 !important;
+}
+
+.top-line-2{
+	background-color: #5db85b !important;
+}
+
+.top-line-3{
+	background-color: #efad4d !important;
+}
+
+.top-line-4{
+	background-color: #d95350 !important;
+}
+
+.front-page .graphs{
+	border: 1px solid #d0d0d0;
+    background: #ececec;
+    padding: 30px;
+}
+

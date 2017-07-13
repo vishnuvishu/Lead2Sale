@@ -1,2 +1,115 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section class="front-page">
+<div class="container is-fluid">
+
+<div class="top-line">
+<div class="columns">
+
+  <div class="column is-3">
+	<a href="/prospects">
+  		<div class="notification is-primary top-line-1">
+			<div class="columns">
+  				<div class="column is-6">
+  					<i class="fa fa-user" aria-hidden="true"></i>
+  				</div>
+  			<div class="column is-6">
+  				<div class="pull-right">
+	  				<span id="span1"><%= @prospects.length %></span><br>
+	    			<span id="span2">Prospects</span>
+    			</div>
+  			</div>
+  			</div>
+    	</div>
+	</a>
+  </div>
+
+  <div class="column is-3">
+    <a href="/customers">
+ 		<div class="notification is-primary top-line-2">
+			<div class="columns">
+  				<div class="column is-6">
+  					<i class="fa fa-handshake-o" aria-hidden="true"></i>
+  				</div>
+  				<div class="column is-6">
+  					<div class="pull-right">
+	  					<span id="span1"><%= @customers.length %></span><br>
+	    				<span id="span2">Customers</span>
+    				</div>
+  				</div>
+  			</div>
+    	</div>
+    </a>
+  </div>
+
+  <div class="column is-3">
+  	<a href="/roles">
+  		<div class="notification is-primary top-line-3">
+			<div class="columns">
+  				<div class="column is-6">
+  					<i class="fa fa-cubes" aria-hidden="true"></i>
+  				</div>
+  				<div class="column is-6">
+  					<div class="pull-right">
+	  					<span id="span1"><%= @roles.length %></span><br>
+	    				<span id="span2">Roles</span>
+    				</div>
+  				</div>
+  			</div>
+    	</div>
+    </a>
+  </div>
+
+  <div class="column is-3">
+    <a href="/stages">
+  		<div class="notification is-primary top-line-4">
+			<div class="columns">
+  				<div class="column is-6">
+  					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+  				</div>
+  				<div class="column is-6">
+  					<div class="pull-right">
+	  					<span id="span1"><%= @stages.length %></span><br>
+	    				<span id="span2">Stages</span>
+    				</div>
+  				</div>
+  			</div>
+    	</div>
+    </a>
+  </div>
+
+</div>
+</div>
+
+
+
+<div class="columns">
+
+  <div class="column is-6">
+  	<div class="graphs">
+  		<% total_customers = @customers.length %>
+		<% total_prospects = @prospects.length %>
+		<% total_roles = @roles.length %>
+		<% total_stages = @stages.length %>
+
+		<%= pie_chart({"Customers" =>  total_customers, "Prospects" =>  total_prospects, "Roles" =>  total_roles, "Stages" =>  total_stages}) %>
+	</div>
+  </div>
+
+  <div class="column is-6">
+  	<div class="graphs">
+  		<% data = {} %>
+		<% data["Customers"] = @customers.size %>
+		<% data["Prospects"] = @prospects.size %>
+		<% data["Roles"] = @roles.size %>
+		<% data["Stages"] = @stages.size %>
+		<%= column_chart(data) %>
+	</div>
+  </div>
+
+</div>
+
+
+</div>
+</section>
+
+
+

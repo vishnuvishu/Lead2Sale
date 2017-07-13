@@ -1,10 +1,16 @@
-<h2>Role Details </h2>
+<div class="container is-fluid">
+
+ <div class="columns">
+  <div class="column is-10">
+    <h2 class="title is-3">Role Details</h2>
+  </div>
+</div>
 
   <% if @roles.empty? %>
      <p> table is empty</p> 
   <% else %>
 
- <table>
+ <table class="table is-bordered is-striped">
 	<thead>
 		<tr>
 			<td>Sl.no</td>
@@ -22,3 +28,4 @@
  </table>
 
  <% end %>
+</div>
