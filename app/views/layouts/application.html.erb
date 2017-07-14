@@ -15,11 +15,13 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+
 <nav class="nav has-shadow">
   <div class="container is-fluid is-mobile">
     <div class="nav-left">
       <a class="nav-item" href="/" >
-        <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+        <img src="/images/l2s2.jpg" alt="Bulma logo">
       </a>
 
       <%#= link_to "Customers", customers_path , :class=> "nav-item is-tab is-hidden-mobile is-active" %> 
@@ -48,6 +50,8 @@
     </div>
   </div>
 </nav>
+
+<% end %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
