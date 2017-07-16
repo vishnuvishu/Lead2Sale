@@ -1,31 +1,35 @@
-<div class="container is-fluid">
+<div class="roles">
+	<div class="container is-fluid">
+		<div class="columns">
+  			<div class="column is-10">
+    			<h2 class="title is-3">Role Details</h2>
+  			</div>
+		</div>
 
- <div class="columns">
-  <div class="column is-10">
-    <h2 class="title is-3">Role Details</h2>
-  </div>
-</div>
+  		<% if @roles.empty? %>
+    	 <p> table is empty</p> 
+  		<% else %>
 
-  <% if @roles.empty? %>
-     <p> table is empty</p> 
-  <% else %>
-
- <table class="table is-bordered is-striped">
-	<thead>
-		<tr>
-			<td>Sl.no</td>
-			<td>Role</td>
-		</tr>
-	</thead>
-	<tbody>
-		<% @roles.each_with_index do |role, index| %>
-			<tr>
-				<td><%= index + 1 %></td>
-				<td><%= role.name %></td>
-			</tr>
+   		<div class="columns">
+  			<div class="column is-3">
+ 				<table class="table is-bordered is-striped">
+					<thead>
+						<tr>
+							<td>Sl.no</td>
+							<td>Role</td>
+						</tr>
+					</thead>
+				<tbody>
+					<% @roles.each_with_index do |role, index| %>
+						<tr>
+							<td><%= index + 1 %></td>
+							<td><%= role.name %></td>
+						</tr>
+					<% end %>
+				</tbody>
+ 				</table>
+  			</div>
+		</div>
 		<% end %>
-	</tbody>
- </table>
-
- <% end %>
+	</div>
 </div>

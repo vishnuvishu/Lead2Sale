@@ -4,17 +4,15 @@
     <h2 class="title is-3">Stage Details</h2>
   </div>
   <div class="column is-2">
-     <a class="button is-success is-outlined modal-button" data-target="modal1">Add New Stage</a>
+      <%= link_to new_stage_path, class: "button is-success is-outlined" do %> Add New Stage <% end %>
   </div>
- 
 </div>
 
+<% if @stages.empty? %>
+   <p> table is empty</p> 
+<% else %>
 
-  <% if @stages.empty? %>
-     <p> table is empty</p> 
-  <% else %>
-
- <table class="table is-bordered is-striped">
+<table class="table is-bordered is-striped">
 	<thead>
 		<tr>
 			<td>Sl.no</td>
@@ -38,58 +36,11 @@
 			</tr>
 		<% end %>
 	</tbody>
- </table>
+</table>
 
- <% end %>
-
- <%#= link_to "Add stage", new_stage_path %>
- </div>
-
-
-
- <div class="modal" id="modal1">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Add New Stage</p>
-      <button class="delete"></button>
-    </header>
-    <section class="modal-card-body">
-   
-    	   <%= form_for Stage.new do |f| %>
-
-  				<div class="columns">
-			  		<div class="column is-3	">
-			    		<%= f.label :name  %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :name %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-3">
-			    		<%= f.label :description %>
-			  		</div>
-			  		<div class="column is-5">
-			  			<%= f.text_field :description %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-3">
-			    		<%= f.label :interest_level %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :interest_level %>
-			  		</div>
-				</div>
-    	 
-    </section>
-    <footer class="modal-card-foot">
-      <%= f.submit "Submit", class: "button is-success"%>
-      <a class="button">Cancel</a>
-    </footer>
-      <% end %>
-  </div>
+<% end %>
 </div>
+
+
+
+ 

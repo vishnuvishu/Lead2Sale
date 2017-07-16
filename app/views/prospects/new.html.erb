@@ -1,22 +1,60 @@
-<h2> Add New prospect </h2> 
+<div class="page-styling">
+	<div class="container is-fluid">
+		<h2> Add New prospect </h2> 
 
-<%= form_for @prospect do |f| %>
+			<%= form_for @prospect do |f| %>
 
-<%= f.label :full_name  %>
-<%= f.text_field :full_name %><br/>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :full_name  %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :full_name %>
+			  		</div>
+				</div>
 
-<%= f.label :email %>
-<%= f.text_field :email %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :email %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :email %>
+			  		</div>
+				</div>
 
-<%= f.label :phone %>
-<%= f.text_field :phone %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :phone %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :phone %>
+			  		</div>
+				</div>
 
-<%= f.label :location %>
-<%= f.text_field :location %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :location %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :location %>
+			  		</div>
+				</div>
 
-<%= f.label :stage %>
-<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :stage %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %>
+			  		</div>
+				</div>
 
-<%= f.submit "Submit" %>
+				<div class="columns">
+			  		<div class="column is-2 is-offset-2">
+			    		<%= f.submit "Submit", class: "button is-success"%>
+			  		</div>
+				</div>
 
-<% end %>
+			<% end %>
+	</div>
+</div>

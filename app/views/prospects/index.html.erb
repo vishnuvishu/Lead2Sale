@@ -1,21 +1,18 @@
 <div class="container is-fluid">
-
  <div class="columns">
   <div class="column is-10">
     <h2 class="title is-3">Prospect Details </h2>
   </div>
   <div class="column is-2">
-     <a class="button is-success is-outlined modal-button" data-target="modal1">Add Prospect</a>
+      <%= link_to new_prospect_path, class: "button is-success is-outlined" do %> Add Prospect <% end %>
   </div>
- 
 </div>
 
+<% if @prospects.empty? %>
+   <p> table is empty </p> 
+<% else %>
 
-  <% if @prospects.empty? %>
-     <p> table is empty</p> 
-  <% else %>
-
- <table class="table is-bordered is-striped">
+<table class="table is-bordered is-striped">
 	<thead>
 		<tr>
 			<th>Sl.no</th>
@@ -42,112 +39,8 @@
 			</tr>
 		<% end %>
 	</tbody>
- </table>
+</table>
 
- <% end %>
-
- <%#= link_to "Invite", new_user_invitation_path %>
-
-
+<% end %>
 </div>
-
-<!-- <a class="button is-primary is-large modal-button" data-target="modal1">Launch modal card</a> -->
-<div class="modal" id="modal1">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Add New Prospect</p>
-      <button class="delete"></button>
-    </header>
-    <section class="modal-card-body">
-   
-    	   <%= form_for Prospect.new do |f| %>
-
-  				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :full_name  %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :full_name %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :email %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :email %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :phone %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :phone %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :location %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.text_field :location %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :stage %>
-			  		</div>
-			  		<div class="column is-5">
-			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %>
-			  		</div>
-				</div>
-    	 
-    </section>
-    <footer class="modal-card-foot">
-      <%= f.submit "Submit", class: "button is-success"%>
-      <a class="button">Cancel</a>
-    </footer>
-      <% end %>
-  </div>
-</div>
-
-
-
-
-
-<script>
-
-$(document).ready(function() {
-    //toggle `popup` / `inline` mode
-    $.fn.editable.defaults.mode = 'popup';     
-    
-    //make username editable
-    $('#username').editable();
-    
-    //make status editable
-    $('#status').editable({
-        type: 'select',
-        title: 'Select status',
-        placement: 'right',
-        value: 2,
-        source: [
-            {value: 1, text: 'status 1'},
-            {value: 2, text: 'status 2'},
-            {value: 3, text: 'status 3'}
-        ]
-        
-        //uncomment these lines to send data on server
-        ,pk: 1
-        ,url: '/post'
-        
-    });
-});
-
-</script>
 

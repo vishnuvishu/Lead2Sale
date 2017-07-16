@@ -96,9 +96,35 @@ section.front-page{
     padding: 30px;
 }
 
+/* page-styling */
 
 
 
+.page-styling h2{
+  font-size: 20px;
+  margin: 15px 0px;
+}
+
+.page-styling input{
+  width: 100%;
+  height: 25px;
+}
+
+.page-styling{
+  padding: 20px 0px;
+  min-height: 550px;
+}
+
+.page-styling input.button.is-success {
+  height: 36px;
+}
+
+
+/* roles */
+
+.roles{
+  min-height: 550px;
+}
 
 
 

@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/css/jqueryui-editable.css" rel="stylesheet"/>
-
 </head>
 <body>
 
@@ -33,28 +32,26 @@
       <%= link_to("Customers", customers_path , class: controller.controller_name == "customers" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
       <%= link_to("Roles", roles_path , class: controller.controller_name == "roles" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
       <%= link_to("Prospects", prospects_path , class: controller.controller_name == "prospects" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
-      <%= link_to("Stages", stages_path , class: controller.controller_name == "stages" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
+      <%= link_to("Stages", stages_path , class: controller.controller_name == "stages" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>  
 
-      
-        
     </div>
+
     <span class="nav-toggle">
       <span></span>
       <span></span>
       <span></span>
     </span>
+
     <div class="nav-right nav-menu">
-   
-      </a>
-          <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class=> "nav-item is-tab" %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class=> "nav-item is-tab" %>
     </div>
   </div>
 </nav>
 
-<% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 

@@ -86,27 +86,26 @@
   <div class="column is-6">
   	<div class="graphs">
   		<% total_customers = @customers.length %>
-		<% total_prospects = @prospects.length %>
-		<% total_roles = @roles.length %>
-		<% total_stages = @stages.length %>
+  		<% total_prospects = @prospects.length %>
+  		<% total_roles = @roles.length %>
+  		<% total_stages = @stages.length %>
 
-		<%= pie_chart({"Customers" =>  total_customers, "Prospects" =>  total_prospects, "Roles" =>  total_roles, "Stages" =>  total_stages}) %>
-	</div>
+		  <%= pie_chart({"Customers" =>  total_customers, "Prospects" =>  total_prospects, "Roles" =>  total_roles, "Stages" =>  total_stages}) %>
+	  </div>
   </div>
 
   <div class="column is-6">
   	<div class="graphs">
   		<% data = {} %>
-		<% data["Customers"] = @customers.size %>
-		<% data["Prospects"] = @prospects.size %>
-		<% data["Roles"] = @roles.size %>
-		<% data["Stages"] = @stages.size %>
-		<%= column_chart(data) %>
-	</div>
+		  <% data["Customers"] = @customers.size %>
+		  <% data["Prospects"] = @prospects.size %>
+		  <% data["Roles"] = @roles.size %>
+		  <% data["Stages"] = @stages.size %>
+		  <%= column_chart(data) %>
+	  </div>
   </div>
 
 </div>
-
 
 </div>
 </section>

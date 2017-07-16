@@ -1,16 +1,42 @@
-<h2> Add New Stage </h2> 
+<div class="page-styling">
+	<div class="container is-fluid">
+		<h2> Add New Stage </h2> 
 
-<%= form_for @stage do |f| %>
+			<%= form_for @stage do |f| %>
 
-<%= f.label :name  %>
-<%= f.text_field :name %><br/>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :name  %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :name %>
+			  		</div>
+				</div>
 
-<%= f.label :description %>
-<%= f.text_field :description %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :description %>
+			  		</div>
+			  		<div class="column is-2">
+			  			<%= f.text_field :description %>
+			  		</div>
+				</div>
 
-<%= f.label :interest_level %>
-<%= f.text_field :interest_level %></br>
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :interest_level %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.text_field :interest_level %>
+			  		</div>
+				</div>
 
-<%= f.submit "Submit" %>
+				<div class="columns">
+			  		<div class="column is-2 is-offset-2">
+			    		<%= f.submit "Submit", class: "button is-success"%>
+			  		</div>
+				</div>
 
-<% end %>
+			<% end %>
+	</div>
+</div>

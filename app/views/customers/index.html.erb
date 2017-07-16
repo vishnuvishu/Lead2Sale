@@ -4,14 +4,13 @@
   <div class="column is-10">
     <h2 class="title is-3">Customer Details </h2>
   </div>
- 
 </div>
 
-  <% if @customers.empty? %>
-     <p> table is empty</p> 
-  <% else %>
+<% if @customers.empty? %>
+   <p> table is empty</p> 
+<% else %>
 
- <table class="table is-bordered is-striped">
+<table class="table is-bordered is-striped">
 	<thead>
 		<tr>
 			<td>Sl.no</td>
@@ -35,7 +34,7 @@
 			</tr>
 		<% end %>
 	</tbody>
- </table>
+</table>
 
  <% end %>
 
