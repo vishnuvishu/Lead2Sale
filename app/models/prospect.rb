@@ -1,9 +1,6 @@
 class Prospect < ActiveRecord::Base
 	belongs_to :stage
-	belongs_to :user, class_name: 'User'\
-
-	#validates_presence_of :full_name, :email, :phone, :location, :stage_id, :managed_by
-
+	belongs_to :user, class_name: 'User'
 
 	before_create :assign_stage
 	before_save :make_as_customer

@@ -18,3 +18,11 @@ Stage.create(name: "Lost", description: "This stage is assigned if a Prospect pu
 
 Role.create(name: "Sales Manager")
 Role.create(name: "Sales Associate")
+
+user = User.new
+user.email = 'muhammed.najeeb@l2s.com'
+user.password = '$Secret@123'
+user.full_name = 'Muhammed Najeeb'
+user.phone = '9645852457'
+user.role_id = 2
+user.save
