@@ -61,7 +61,8 @@
 			    		<%= f.label :full_name  %>
 			  		</div>
 			  		<div class="column is-9">
-			     		<%= f.text_field :full_name %>
+			     		<%= f.text_field :full_name %><br>
+			     		<span id="userNameError"></span>
 			  		</div>
 				</div>
 
@@ -71,6 +72,7 @@
 			  		</div>
 			  		<div class="column is-9">
 			  			<%= f.text_field :email %>
+			  			<span id="userEmailError"></span>
 			  		</div>
 				</div>
 
@@ -81,6 +83,7 @@
 			  		</div>
 			  		<div class="column is-9">
 			     		<%= f.text_field :phone %>
+			     		<span id="userPhoneError"></span>
 			  		</div>
 				</div>
 
@@ -90,6 +93,7 @@
 			  		</div>
 			  		<div class="column is-9">
 			     		<%= f.collection_select :role_id, Role.all, :id, :name, prompt: "Select Role" %>
+			     		<span id="userRoleError"></span>
 			  		</div>
 				</div>
 
@@ -107,3 +111,50 @@
 <% end %>
 </div>
 
+
+<script>
+	
+	var userNameHandle = document.getElementById('user_full_name');
+	var userEmailHandle = document.getElementById('user_email');
+	var userPhoneHandle = document.getElementById('user_phone');
+
+	var userNameErrorHandle = document.getElementById('userNameError');
+	var userEmailErrorHandle = document.getElementById('userEmailError');
+	var userPhoneErrorHandle = document.getElementById('userPhoneError');
+
+	userNameHandle.onfocus = function(){
+	  if(userNameHandle.value.length == ""){
+	    userNameErrorHandle.innerHTML = "cant be blank";
+	  }
+	  else{
+	    userNameErrorHandle.innerHTML = "";
+	  }
+	}
+
+	userEmailHandle.onfocus = function(){
+	  if(userEmailHandle.value.length == ""){
+	    userEmailErrorHandle.innerHTML = "cant be blank";
+	  }
+	  else if(!validateEmail(userEmailHandle.value)){
+	    userEmailErrorHandle.innerHTML = "invalid email format";
+	  }
+	  else{
+	    userEmailErrorHandle.innerHTML = "";
+	  }
+	}
+
+	userPhoneHandle.onfocus = function(){
+	  if(userPhoneHandle.value.length == ""){
+	    userPhoneErrorHandle.innerHTML = "cant be blank";
+	  }
+	  else{
+	    userPhoneErrorHandle.innerHTML = "";
+	  }
+	}
+
+	function validateEmail(email) {
+	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(email);
+	}
+
+</script>
