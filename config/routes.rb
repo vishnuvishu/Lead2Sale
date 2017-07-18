@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   get 'home/index'
-
-  devise_for :users
+ 
+  devise_for :users, :path_prefix => 'my'
+  # devise_for :users, path_names: {sign_up: ''}
   resources :prospects
   resources :customers
   resources :stages
