@@ -5,6 +5,11 @@ class Prospect < ActiveRecord::Base
 	before_create :assign_stage
 	before_save :make_as_customer
 
+	validates_presence_of :full_name, :email, :phone, :location, :stage_id, :managed_by
+	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+	validates_numericality_of :phone
+	validates :phone, length: { is: 10 }
+
 	private
 		def assign_stage
 			self.stage_id = Stage.find_by(name: "New Opportunity").id

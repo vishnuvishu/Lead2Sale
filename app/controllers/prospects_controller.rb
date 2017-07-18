@@ -29,7 +29,7 @@ class ProspectsController < ApplicationController
 	def update
 		@prospect = Prospect.find(params[:id])
 		if @prospect.update_attributes(prospect_params)
-			redirect_to prospect_path(@prospect), notice:" successfully updated"
+			redirect_to prospects_path, notice:" successfully updated"
 		else
 			render action: "edit"
 		end

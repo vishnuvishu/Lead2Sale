@@ -5,6 +5,18 @@
 
 			<%= form_for @prospect do |f| %>
 
+				<% if @prospect.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@prospect.errors.count, "error") %> prohibited this prospect from being saved:</h2>
+
+				      <ul>
+				      <% @prospect.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				<% end %>
+
 				<div class="columns">
 			  		<div class="column is-2">
 			    		<%= f.label :full_name  %>
@@ -47,6 +59,15 @@
 			  		</div>
 			  		<div class="column is-2">
 			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-2">
+			    		<%= f.label :managed_by %>
+			  		</div>
+			  		<div class="column is-2">
+			     		<%= f.collection_select :managed_by, User.all, :id, :full_name, prompt: "Select who manages" %>
 			  		</div>
 				</div>
 

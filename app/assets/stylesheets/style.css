@@ -2,6 +2,13 @@ body{
 	background-color: #ecf0f5;
 }
 
+div#error_explanation{
+  border: 1px solid #d00000;
+  background: #e0dbdb;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 /* nav bar */
 
 nav.nav.has-shadow{
@@ -29,11 +36,6 @@ h2.title.is-3{
 a.button.is-success.is-outlined{
 	margin: 15px 0px;
 	float: right;
-}
-
-select#prospect_stage_id{
-	height: 25px;
-	width: 100%;
 }
 
 .modal-card-body input{
@@ -113,6 +115,11 @@ section.front-page{
 .page-styling{
   padding: 20px 0px;
   min-height: 550px;
+}
+
+.page-styling select{
+  height: 25px;
+  width: 100%;
 }
 
 .page-styling input.button.is-success {
