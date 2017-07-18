@@ -1,0 +1,6 @@
+$('#new_user')[0].reset();
+<% if @user.errors.any? %>
+	$('#errors').html("<%= escape_javascript(render 'msg') %>")
+<% else %> 
+	$('#table').html("<%= escape_javascript(render 'users')%>");
+<% end %>

@@ -1,0 +1,26 @@
+<table id="table">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Location</th>
+      <th>Stage</th>
+      <th>Managed By</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prospects.each do |prospect| %>
+      <tr>
+        <td class="editThis"><%= prospect.name %></td>
+        <td class="editThis"><%= prospect.email %></td>
+        <td class="editThis"><%= prospect.phone %></td>
+        <td class="editThis"><%= prospect.location %></td>
+        <td class="editThis"><%= prospect.stage.name %></td>
+        <td class="editThis"><%= prospect.managed_by %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

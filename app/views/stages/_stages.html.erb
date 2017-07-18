@@ -1,0 +1,20 @@
+<table id="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Interest Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stages.each do |stage| %>
+      <tr>
+        <td class="editThis"><%= stage.name %></td>
+        <td class="editThis"><%= stage.description %></td>
+        <td class="editThis"><%= stage.interest_level %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

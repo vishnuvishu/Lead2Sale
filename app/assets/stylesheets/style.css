@@ -9,6 +9,25 @@ div#error_explanation{
   margin-bottom: 20px;
 }
 
+
+/* .index-form */
+
+.index-form{
+  background: #fff;
+  padding: 23px;
+  border: 1px solid #bbbbbb;
+}
+
+.index-form input,
+.index-form select{
+    width: 100%;
+    height: 25px;
+}
+
+.index-form input.button.is-success {
+    height: 36px;
+}
+
 /* nav bar */
 
 nav.nav.has-shadow{

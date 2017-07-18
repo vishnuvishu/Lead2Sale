@@ -1,0 +1,6 @@
+$('#new_prospect')[0].reset();
+<% if @prospect.errors.any? %>
+	$('#errors').html("<%= escape_javascript(render 'msg') %>")
+<% else %> 
+	$('#table').html("<%= escape_javascript(render 'prospects')%>");
+<% end %>

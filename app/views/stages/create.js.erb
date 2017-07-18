@@ -1,0 +1,6 @@
+$('#new_stage')[0].reset();
+<% if @stage.errors.any? %>
+	$('#errors').html("<%= escape_javascript(render 'msg') %>")
+<% else %> 
+	$('#table').html("<%= escape_javascript(render 'stages')%>");
+<% end %>

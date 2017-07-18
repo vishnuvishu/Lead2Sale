@@ -1,10 +1,11 @@
 <div class="container is-fluid">
  <div class="columns">
-  <div class="column is-10">
+  <div class="column is-9">
     <h2 class="title is-3">Prospect Details </h2>
   </div>
-  <div class="column is-2">
-      <%= link_to new_prospect_path, class: "button is-success is-outlined" do %> Add Prospect <% end %>
+  <div class="column is-3">
+      <!-- <%#= link_to new_prospect_path, class: "button is-success is-outlined" do %> Add Prospect <%# end %> -->
+      <h2 class="title is-3">Add New Prospect</h2>
   </div>
 </div>
 
@@ -12,35 +13,116 @@
    <p> table is empty </p> 
 <% else %>
 
-<table class="table is-bordered is-striped">
-	<thead>
-		<tr>
-			<th>Sl.no</th>
-			<th>Full Name</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>Location</th>
-			<th>Stage</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @prospects.each_with_index do |prospect, index| %>
-			<tr>
-				<td><%= index + 1 %></td>
-				<td><%= prospect.full_name %></td>
-				<td><%= prospect.email %></td>
-				<td><%= prospect.phone %></td>
-				<td><%= prospect.location %></td>
-				<td><%= prospect.stage.try(:name) %></td>
-				<!-- <td><%#= link_to prospect_path(prospect), class: "button is-success" do %> Show <%# end %></td> -->
-				<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
-				<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="columns">
+  <div class="column is-9">
+	  	<table class="table is-bordered is-striped" id="table">
+			<thead>
+				<tr>
+					<th>Sl.no</th>
+					<th>Full Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Location</th>
+					<th>Stage</th>
+					<th>Managed by</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>
 
+			<tbody>
+				<% @prospects.each_with_index do |prospect, index| %>
+					<tr>
+						<td><%= index + 1 %></td>
+						<td><%= prospect.full_name %></td>
+						<td><%= prospect.email %></td>
+						<td><%= prospect.phone %></td>
+						<td><%= prospect.location %></td>
+						<td><%= prospect.stage.try(:name) %></td>
+						<td><%= prospect.managed_by %></td>
+						<!-- <td><%#= link_to prospect_path(prospect), class: "button is-success" do %> Show <%# end %></td> -->
+						<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
+						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+  </div>
+
+  <div class="column is-3">
+
+    <div id="errors">
+  	</div>
+
+  	<div class="index-form">
+
+  		<%= form_for Prospect.new,remote: true do |f| %>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :full_name %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.text_field :full_name %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :email %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.text_field :email %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :phone %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.text_field :phone %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :location %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.text_field :location %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :stage %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-3">
+			    		<%= f.label :managed_by %>
+			  		</div>
+			  		<div class="column is-7">
+			     		<%= f.collection_select :managed_by, User.all, :id, :full_name, prompt: "Select who manages" %>
+			  		</div>
+				</div>
+
+				<div class="columns">
+			  		<div class="column is-4 is-offset-6">
+			    		<%= f.submit "Submit", class: "button is-success"%>
+			  		</div>
+				</div>
+
+		<% end %>
+	</div>
+  </div>
+
+ </div>
+ 
 <% end %>
 </div>
 
