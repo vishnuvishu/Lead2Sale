@@ -9,6 +9,15 @@ div#error_explanation{
   margin-bottom: 20px;
 }
 
+div#noticeMsg{
+    color: #23d160;
+    margin-top: 12px;
+}
+
+p.notice{
+  color: #23d160;
+}
+
 
 /* .index-form */
 

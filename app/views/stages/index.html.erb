@@ -9,12 +9,15 @@
   </div>
 </div>
 
-<% if @stages.empty? %>
-   <p> table is empty</p> 
-<% else %>
+
 
 <div class="columns">
   <div class="column is-8">
+
+  		<% if @stages.empty? %>
+   			<p> table is empty</p> 
+		<% else %>
+		
 	  	<table class="table is-bordered is-striped" id="table">
 			<thead>
 				<tr>
@@ -28,14 +31,14 @@
 
 			<tbody>
 				<% @stages.each_with_index do |stage, index| %>
-					<tr>
+					<tr id="stage_<%= stage.id %>">
 						<td><%= index + 1 %></td>
 						<td><%= stage.name %></td>
 						<td><%= stage.description %></td>
 						<td><%= stage.interest_level %></td>
 						<!-- <td><%#= link_to "Show", stage_path(stage) %></td> -->
 						<td><%= link_to edit_stage_path(stage), class: "button is-info" do %> Edit <% end %></td>
-						<td><%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger" do %> Delete <% end %></td>
+						<td><%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?', remote: true } , class: "button is-danger" do %> Delete <% end %></td>
 					</tr>
 				<% end %>
 			</tbody>
@@ -90,6 +93,10 @@
 		<% end %>
 	</div>
 
+	<div id="noticeMsg">
+
+  	</div>
+
   </div>
  </div>
 
@@ -109,7 +116,7 @@
 
 
 
-	stageNameHandle.onfocus = function(){
+	stageNameHandle.onblur = function(){
 	  if(stageNameHandle.value.length == ""){
 	    stageNameErrorHandle.innerHTML = "cant be blank";
 	  }
@@ -118,7 +125,7 @@
 	  }
 	}
 
-	stageDescriptionHandle.onfocus = function(){
+	stageDescriptionHandle.onblur = function(){
 	  if(stageDescriptionHandle.value.length == ""){
 	    stageDescriptionErrorHandle.innerHTML = "cant be blank";
 	  }
@@ -127,7 +134,7 @@
 	  }
 	}
 
-	stageInterestLevelHandle.onfocus = function(){
+	stageInterestLevelHandle.onblur = function(){
 	  if(stageInterestLevelHandle.value.length == ""){
 	    stageInterestLevelErrorHandle.innerHTML = "cant be blank";
 	  }

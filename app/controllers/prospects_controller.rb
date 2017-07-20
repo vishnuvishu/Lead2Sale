@@ -1,8 +1,8 @@
 class ProspectsController < ApplicationController
-	#before_action :authenticate_user!
+	before_action :authenticate_user!
 
 	def index
-		@prospects = Prospect.all
+		@prospects = (current_user.role? "Sales Manager") ? Prospect.all : current_user.prospects
 	end
 
 	def new
@@ -10,12 +10,9 @@ class ProspectsController < ApplicationController
 	end
 
 	def create
+		@prospects = (current_user.role? "Sales Manager") ? Prospect.all : current_user.prospects
 		@prospect = Prospect.new(prospect_params)
-		if @prospect.save
-			redirect_to prospects_path, notice: "prospects successfully created"
-		else
-			render action: "new"
-		end
+		@prospect.save
 	end
 
 	def show
@@ -37,12 +34,7 @@ class ProspectsController < ApplicationController
 
 	def destroy
 		@prospect = Prospect.find(params[:id])
-		if @prospect.destroy
-			redirect_to prospects_path, notice: "Successfully seleted deleted prospect"
-	
-		else
-		redirect_to :back
-		end
+		@prospect.destroy
 	end
 
 	private

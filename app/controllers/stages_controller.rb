@@ -9,11 +9,7 @@ class StagesController < ApplicationController
 
 	def create
 		@stage = Stage.new(stage_params)
-		if @stage.save
-			redirect_to stages_path, notice: "stages successfully created"
-		else
-			render action: "new"
-		end
+		@stage.save
 	end
 
 	def show
@@ -35,12 +31,7 @@ class StagesController < ApplicationController
 
 	def destroy
 		@stage = Stage.find(params[:id])
-		if @stage.destroy
-			redirect_to stages_path, notice: "Successfully seleted deleted stage"
-	
-		else
-		redirect_to :back
-		end
+		@stage.destroy
 	end
 
 	private

@@ -10,13 +10,17 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td class="editThis"><%= user.full_name %></td>
-        <td class="editThis"><%= user.email %></td>
-        <td class="editThis"><%= user.phone %></td>
-        <td class="editThis"><%= user.role_id %></td>
-      </tr>
-    <% end %>
+    <% @users.each_with_index do |user, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= user.full_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.role.try(:name) %></td>
+            <td><%= link_to user_path(user), class: "button is-success" do %> Show <% end %></td> 
+            <td><%= link_to edit_user_path(user), class: "button is-info" do %> Edit <% end %></td>
+            <td><%= link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+          </tr>
+        <% end %>
   </tbody>
 </table>

@@ -9,12 +9,18 @@
   </thead>
 
   <tbody>
-    <% @stages.each do |stage| %>
-      <tr>
-        <td class="editThis"><%= stage.name %></td>
-        <td class="editThis"><%= stage.description %></td>
-        <td class="editThis"><%= stage.interest_level %></td>
-      </tr>
-    <% end %>
+   <tbody>
+        <% Stage.all.each_with_index do |stage, index| %>
+          <tr id="stage_<%= stage.id %>">
+            <td><%= index + 1 %></td>
+            <td><%= stage.name %></td>
+            <td><%= stage.description %></td>
+            <td><%= stage.interest_level %></td>
+            <!-- <td><%#= link_to "Show", stage_path(stage) %></td> -->
+            <td><%= link_to edit_stage_path(stage), class: "button is-info" do %> Edit <% end %></td>
+            <td><%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?', remote: true } , class: "button is-danger" do %> Delete <% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
   </tbody>
 </table>

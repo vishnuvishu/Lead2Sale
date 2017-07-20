@@ -9,12 +9,15 @@
   </div>
 </div>
 
-<% if @prospects.empty? %>
-   <p> table is empty </p> 
-<% else %>
+
 
 <div class="columns">
   <div class="column is-9">
+
+	  	<% if @prospects.empty? %>
+	   		<p> table is empty </p> 
+	  	<% else %>
+
 	  	<table class="table is-bordered is-striped" id="table">
 			<thead>
 				<tr>
@@ -31,21 +34,22 @@
 
 			<tbody>
 				<% @prospects.each_with_index do |prospect, index| %>
-					<tr>
+					<tr id="prospect_<%= prospect.id %>">
 						<td><%= index + 1 %></td>
 						<td><%= prospect.full_name %></td>
 						<td><%= prospect.email %></td>
 						<td><%= prospect.phone %></td>
 						<td><%= prospect.location %></td>
 						<td><%= prospect.stage.try(:name) %></td>
-						<td><%= prospect.managed_by %></td>
+						<td><%#= User.find(prospect.managed_by).full_name unless prospect.managed_by.nil? %></td>
 						<!-- <td><%#= link_to prospect_path(prospect), class: "button is-success" do %> Show <%# end %></td> -->
 						<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
-						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
+		<% end %>
   </div>
 
   <div class="column is-3">
@@ -123,11 +127,16 @@
 
 		<% end %>
 	</div>
+
+	<div id="noticeMsg">
+
+  	</div>
+
   </div>
 
  </div>
 
-<% end %>
+
 </div>
 
 
@@ -145,7 +154,7 @@
 
 
 
-	prospectNameHandle.onfocus = function(){
+	prospectNameHandle.onblur = function(){
 	  if(prospectNameHandle.value.length == ""){
 	    prospectNameErrorHandle.innerHTML = "cant be blank";
 	  }
@@ -154,7 +163,7 @@
 	  }
 	}
 
-	prospectEmailHandle.onfocus = function(){
+	prospectEmailHandle.onblur = function(){
 	  if(prospectEmailHandle.value.length == ""){
 	    prospectEmailErrorHandle.innerHTML = "cant be blank";
 	  }
@@ -166,9 +175,13 @@
 	  }
 	}
 
-	prospectPhoneHandle.onfocus = function(){
+	prospectPhoneHandle.onblur = function(){
 	  if(prospectPhoneHandle.value.length == ""){
 	    prospectPhoneErrorHandle.innerHTML = "cant be blank";
+	  }
+
+	  else if(prospectPhoneHandle.value.length != 10){
+	    prospectPhoneErrorHandle.innerHTML = "phone number should be 10 digits";
 	  }
 	  else{
 	    prospectPhoneErrorHandle.innerHTML = "";
@@ -176,7 +189,7 @@
 	}
 
 
-	prospectLocationHandle.onfocus = function(){
+	prospectLocationHandle.blur = function(){
 	  if(prospectLocationHandle.value.length == ""){
 	    prospectLocationErrorHandle.innerHTML = "cant be blank";
 	  }

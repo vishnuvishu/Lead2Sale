@@ -12,15 +12,19 @@
   </thead>
 
   <tbody>
-    <% @prospects.each do |prospect| %>
-      <tr>
-        <td class="editThis"><%= prospect.name %></td>
-        <td class="editThis"><%= prospect.email %></td>
-        <td class="editThis"><%= prospect.phone %></td>
-        <td class="editThis"><%= prospect.location %></td>
-        <td class="editThis"><%= prospect.stage.name %></td>
-        <td class="editThis"><%= prospect.managed_by %></td>
-      </tr>
-    <% end %>
+    <% @prospects.each_with_index do |prospect, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= prospect.full_name %></td>
+            <td><%= prospect.email %></td>
+            <td><%= prospect.phone %></td>
+            <td><%= prospect.location %></td>
+            <td><%= prospect.stage.try(:name) %></td>
+            <td><%= User.find(prospect.managed_by).full_name unless prospect.managed_by.nil? %></td>
+            <!-- <td><%#= link_to prospect_path(prospect), class: "button is-success" do %> Show <%# end %></td> -->
+            <td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
+            <td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+          </tr>
+        <% end %>
   </tbody>
 </table>
