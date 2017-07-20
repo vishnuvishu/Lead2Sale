@@ -2,12 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-     if user.nil?
-        can [:read], [Prospect]
-    elsif user.role? "Sales Manager"
+    if user.role_id == 1
         can :manage, [Prospect,User,Role,Stage]
         can [:read,:update,:destroy], [Customer]
-    elsif user.role? "Sales Associates"
+    elsif user.role_id == 2
         can [:create,:read,:update], [Prospect]
     end 
     # Define abilities for the passed in user here. For example:

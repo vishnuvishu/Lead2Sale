@@ -41,7 +41,7 @@
   </div>
 
 
-  <%# if can? :create, Role.new %> 
+  <% if can? :create, User.new %> 
   <div class="column is-3">
     <a href="/roles">
       <div class="notification is-primary top-line-3">
@@ -59,9 +59,9 @@
       </div>
     </a>
   </div>
-  <%# end %>
+  <% end %>
 
-  <%# if can? :create, Stage.new %> 
+  <% if can? :create, Stage.new %> 
   <div class="column is-3">
     <a href="/stages">
       <div class="notification is-primary top-line-4">
@@ -79,7 +79,7 @@
       </div>
     </a>
   </div>
-  <%# end %>
+  <% end %>
 
 </div>
 </div>

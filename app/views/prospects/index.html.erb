@@ -4,7 +4,6 @@
     <h2 class="title is-3">Prospect Details </h2>
   </div>
   <div class="column is-3">
-      <!-- <%#= link_to new_prospect_path, class: "button is-success is-outlined" do %> Add Prospect <%# end %> -->
       <h2 class="title is-3">Add New Prospect</h2>
   </div>
 </div>
@@ -41,8 +40,7 @@
 						<td><%= prospect.phone %></td>
 						<td><%= prospect.location %></td>
 						<td><%= prospect.stage.try(:name) %></td>
-						<td><%#= User.find(prospect.managed_by).full_name unless prospect.managed_by.nil? %></td>
-						<!-- <td><%#= link_to prospect_path(prospect), class: "button is-success" do %> Show <%# end %></td> -->
+						<td><%= User.find(prospect.managed_by).full_name %></td>
 						<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
 						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>
 					</tr>
@@ -189,7 +187,7 @@
 	}
 
 
-	prospectLocationHandle.blur = function(){
+	prospectLocationHandle.onblur = function(){
 	  if(prospectLocationHandle.value.length == ""){
 	    prospectLocationErrorHandle.innerHTML = "cant be blank";
 	  }

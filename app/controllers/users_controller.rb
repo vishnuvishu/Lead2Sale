@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	load_and_authorize_resource
+	
 	def index
 		@users = User.all
 	end
@@ -9,7 +11,10 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		@user = User.new(user_params)
 		User.invite!(user_params)
+		# Invitation.send_invitation(user_params)
+		#binding.pry
 		redirect_to users_path
 	end
 

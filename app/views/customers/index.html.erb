@@ -29,7 +29,6 @@
 				<td><%= customer.email %></td>
 				<td><%= customer.phone %></td>
 				<td><%= customer.location %></td>
-<!-- 			<td><%#= link_to "Show", customer_path(customer) %></td> -->
 				<td><%= link_to customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
 			</tr>
 		<% end %>
@@ -37,6 +36,5 @@
 </table>
 
  <% end %>
-
- <%#= link_to "Add Prospect", new_prospect_path %>
+ 
  </div>

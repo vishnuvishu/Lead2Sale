@@ -28,19 +28,26 @@
         <img src="/images/l2s2.png" alt="Bulma logo">
       </a>
 
-      <%#= link_to "Customers", customers_path , :class=> "nav-item is-tab is-hidden-mobile is-active" %> 
-      <%#= link_to "Users", users_path , :class=> "nav-item is-tab is-hidden-mobile"%> 
-      <%#= link_to "Roles", roles_path , :class=> "nav-item is-tab is-hidden-mobile" %> 
-      <%#= link_to "Prospects", prospects_path , :class=> "nav-item is-tab is-hidden-mobile" %> 
-      <%#= link_to "Stages", stages_path , :class=> "nav-item is-tab is-hidden-mobile" %>
+      <% if can? :create, Customer.new %> 
+        <%= link_to("Customers", customers_path , class: controller.controller_name == "customers" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
+      <% end %>
 
-      <%= link_to("Customers", customers_path , class: controller.controller_name == "customers" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
+      <% if can? :create, Role.new %> 
       <%= link_to("Roles", roles_path , class: controller.controller_name == "roles" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
-      <%= link_to("Prospects", prospects_path , class: controller.controller_name == "prospects" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
-      <%= link_to("Stages", stages_path , class: controller.controller_name == "stages" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%> 
-      <%= link_to("Users", users_path , class: controller.controller_name == "users" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%> 
-      
+      <% end %>
 
+      <% if can? :create, Prospect.new %> 
+      <%= link_to("Prospects", prospects_path , class: controller.controller_name == "prospects" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
+      <% end %>
+
+      <% if can? :create, Stage.new %> 
+      <%= link_to("Stages", stages_path , class: controller.controller_name == "stages" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%>
+      <% end %> 
+
+      <% if can? :create, User.new %> 
+      <%= link_to("Users", users_path , class: controller.controller_name == "users" ? "nav-item is-tab is-hidden-mobile is-active" : "nav-item is-tab is-hidden-mobile")%> 
+      <% end %>
+      
     </div>
 
     <span class="nav-toggle">

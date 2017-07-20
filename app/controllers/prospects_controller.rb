@@ -1,5 +1,7 @@
 class ProspectsController < ApplicationController
+	
 	before_action :authenticate_user!
+	load_and_authorize_resource
 
 	def index
 		@prospects = (current_user.role? "Sales Manager") ? Prospect.all : current_user.prospects

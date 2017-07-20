@@ -5,9 +5,8 @@ class Invitation < ApplicationMailer
   #
   #   en.invitation.send_invitation.subject
   #
-  def send_invitation
+  def send_invitation(user)
     @user = user
-    
     mail(to: @user.email, subject: "You have been invited")
   end
 end

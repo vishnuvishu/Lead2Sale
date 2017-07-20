@@ -4,7 +4,6 @@
     <h2 class="title is-3">Stage Details</h2>
   </div>
   <div class="column is-4">
-     <!--  <%#= link_to new_stage_path, class: "button is-success is-outlined" do %> Add New Stage <%# end %> -->
       <h2 class="title is-3">Add New Stage</h2>
   </div>
 </div>
@@ -36,7 +35,6 @@
 						<td><%= stage.name %></td>
 						<td><%= stage.description %></td>
 						<td><%= stage.interest_level %></td>
-						<!-- <td><%#= link_to "Show", stage_path(stage) %></td> -->
 						<td><%= link_to edit_stage_path(stage), class: "button is-info" do %> Edit <% end %></td>
 						<td><%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?', remote: true } , class: "button is-danger" do %> Delete <% end %></td>
 					</tr>
