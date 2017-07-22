@@ -19,10 +19,8 @@ Stage.create(name: "Lost", description: "This stage is assigned if a Prospect pu
 Role.create(name: "Sales Manager")
 Role.create(name: "Sales Associate")
 
-user = User.new
-user.email = 'muhammed.najeeb@l2s.com'
-user.password = '$Secret@123'
-user.full_name = 'Muhammed Najeeb'
-user.phone = '9645852457'
-user.role_id = 2
-user.save
+
+User.create(email:'admin@gmail.com', password: 'secret123', full_name: 'Administrator', phone: '1234567890', role_id: 1)
+User.create(email:'user1@gmail.com', password: 'secret123', full_name: 'User1', phone: '1234567891', role_id: 2)
+User.create(email:'user2@gmail.com', password: 'secret123', full_name: 'User2', phone: '1234567892', role_id: 2)
+

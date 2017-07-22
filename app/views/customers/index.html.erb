@@ -23,13 +23,13 @@
 	</thead>
 	<tbody>
 		<% @customers.each_with_index do |customer, index| %>
-			<tr>
+			<tr  id="customer_<%= customer.id %>">
 				<td><%= index + 1 %></td>
 				<td><%= customer.full_name %></td>
 				<td><%= customer.email %></td>
 				<td><%= customer.phone %></td>
 				<td><%= customer.location %></td>
-				<td><%= link_to customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+				<td><%= link_to customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' ,remote: true},  class: "button is-danger" do %> Delete <% end %></td>
 			</tr>
 		<% end %>
 	</tbody>

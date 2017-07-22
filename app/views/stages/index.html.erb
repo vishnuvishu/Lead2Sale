@@ -45,9 +45,6 @@
 
   <div class="column is-4">
 
-	<div id="errors">
-  	</div>
-
 	<div class="index-form">
 
   		<%= form_for Stage.new,remote: true do |f| %>
@@ -91,8 +88,10 @@
 		<% end %>
 	</div>
 
-	<div id="noticeMsg">
+	<div id="errors">
+  	</div>
 
+	<div id="noticeMsg">
   	</div>
 
   </div>

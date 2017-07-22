@@ -12,10 +12,8 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		@user.save
 		User.invite!(user_params)
-		# Invitation.send_invitation(user_params)
-		#binding.pry
-		redirect_to users_path
 	end
 
 	def show
@@ -43,6 +41,9 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params[:user].permit(:email, :password, :full_name, :phone, :role_id)
+		params[:user].permit(:email, :full_name, :phone, :role_id)
 	end
 end
+
+
+

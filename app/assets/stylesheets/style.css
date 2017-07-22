@@ -25,6 +25,7 @@ p.notice{
   background: #fff;
   padding: 23px;
   border: 1px solid #bbbbbb;
+  margin-bottom: 20px;
 }
 
 .index-form input,
@@ -242,5 +243,10 @@ section.front-page{
 .login-page .control.has-icon.has-icon-right .input{
 	margin-bottom: 10px;
 }
+
+
+
+
+
 
 
