@@ -8,6 +8,7 @@ class Prospect < ActiveRecord::Base
 	validates_presence_of :full_name, :email, :phone, :location, :stage_id, :managed_by
 	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 	validates_numericality_of :phone
+	validates_uniqueness_of :phone, :email
 	validates :phone, length: { is: 10 }
 
 	private

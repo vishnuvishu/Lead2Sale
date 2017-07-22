@@ -7,7 +7,19 @@
 </div>
 
 <% if @customers.empty? %>
-   <p> table is empty</p> 
+
+   <table class="table is-bordered is-striped">
+   	<thead>
+		<tr>
+			<td>Sl.no</td>
+			<td>Full Name</td>
+			<td>Email</td>
+			<td>Phone</td>
+			<td>Location</td>
+		</tr>
+	</thead>
+   </table>
+
 <% else %>
 
 <table class="table is-bordered is-striped">

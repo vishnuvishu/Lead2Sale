@@ -16,7 +16,21 @@
   <div class="column is-9">
 
 	  	<% if @prospects.empty? %>
-	   		<p> table is empty </p> 
+
+	  	<table class="table is-bordered is-striped" id="table">
+		  	<thead>
+				<tr>
+					<th>Sl.no</th>
+					<th>Full Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Location</th>
+					<th>Stage</th>
+					<th>Managed by</th>
+				</tr>
+			</thead>
+	  	</table>
+	   		
 	  	<% else %>
 
 	  	<table class="table is-bordered is-striped" id="table">
@@ -44,7 +58,7 @@
 						<td><%= prospect.stage.try(:name) %></td>
 					  	<td><%= User.find(prospect.managed_by).full_name if User.where(id: prospect.managed_by).exists? %></td> 
 						<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
-						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" , id: "opener" do %> Delete <% end %></td>
+						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>
 					</tr>
 				<% end %>
 			</tbody>
@@ -54,6 +68,9 @@
 
 
   <div class="column is-3">
+
+    <div id="errors">
+  	</div>
 
 
   	<div class="index-form">
@@ -126,9 +143,6 @@
 
 		<% end %>
 	</div>
-
-	<div id="errors">
-  	</div>
 
 	<div id="noticeMsg">
   	</div>

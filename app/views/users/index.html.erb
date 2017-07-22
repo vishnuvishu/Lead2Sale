@@ -12,7 +12,19 @@
   <div class="column is-9">
 
   		<% if @users.empty? %> 
-   			<p> table is empty </p> 
+  		
+  		<table class="table is-bordered is-striped" id="table">
+  			<thead>
+				<tr>
+					<th>Sl.no</th>
+					<th>Full Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Role</th>
+				</tr>
+			</thead>
+  		</table>
+   			
 		<% else %>
 
 	  	<table class="table is-bordered is-striped" id="table">
@@ -46,6 +58,9 @@
   </div>
 
   <div class="column is-3">
+
+    <div id="errors">
+  	</div> 
 
   	<div class="index-form">
 
@@ -102,9 +117,6 @@
 	</div>
 
 	<div id="noticeMsg">
-  	</div>
-
-  	<div id="errors">
   	</div>
 
   </div>

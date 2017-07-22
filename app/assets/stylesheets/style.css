@@ -15,7 +15,13 @@ div#noticeMsg{
 }
 
 p.notice{
-  color: #23d160;
+  color: #118e3d;
+}
+
+p.alert{
+  margin-top: 20px;
+  text-align: center;
+  color: #e04c4c;
 }
 
 

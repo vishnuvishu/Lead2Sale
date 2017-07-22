@@ -21,9 +21,9 @@
             <td><%= prospect.phone %></td>
             <td><%= prospect.location %></td>
             <td><%= prospect.stage.try(:name) %></td>
-           <!--  <td><%#= User.find(prospect.managed_by).full_name unless prospect.managed_by.nil? %></td> -->
+            <td><%= User.find(prospect.managed_by).full_name if User.where(id: prospect.managed_by).exists? %></td> 
             <td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
-            <td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do %> Delete <% end %></td>
+            <td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "button is-danger" do %> Delete <% end %></td>
           </tr>
         <% end %>
   </tbody>

@@ -14,7 +14,19 @@
   <div class="column is-8">
 
   		<% if @stages.empty? %>
-   			<p> table is empty</p> 
+
+  		<table class="table is-bordered is-striped" id="table">
+  			<thead>
+				<tr>
+					<td>Sl.no</td>
+					<td>Name</td>
+					<td>Description</td>
+					<td>Interest Level</td>
+				</tr>
+			</thead>
+
+  		</table>
+   			
 		<% else %>
 		
 	  	<table class="table is-bordered is-striped" id="table">
@@ -36,7 +48,7 @@
 						<td><%= stage.description %></td>
 						<td><%= stage.interest_level %></td>
 						<td><%= link_to edit_stage_path(stage), class: "button is-info" do %> Edit <% end %></td>
-						<td><%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?', remote: true } , class: "button is-danger" do %> Delete <% end %></td>
+					<!-- 	<td><#%= link_to stage_path(stage), method: :delete, data: { confirm: 'Are you sure?', remote: true } , class: "button is-danger" do %> Delete <%# end %></td> -->
 					</tr>
 				<% end %>
 			</tbody>
@@ -44,6 +56,9 @@
   </div>
 
   <div class="column is-4">
+
+    <div id="errors">
+  	</div>
 
 	<div class="index-form">
 
@@ -87,9 +102,6 @@
 
 		<% end %>
 	</div>
-
-	<div id="errors">
-  	</div>
 
 	<div id="noticeMsg">
   	</div>
