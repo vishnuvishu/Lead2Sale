@@ -37,7 +37,7 @@ p.alert{
 .index-form input,
 .index-form select{
     width: 100%;
-    height: 25px;
+    height: 35px;
 }
 
 .index-form input.button.is-success {
@@ -248,6 +248,67 @@ section.front-page{
 
 .login-page .control.has-icon.has-icon-right .input{
 	margin-bottom: 10px;
+}
+
+
+
+
+/* form-styling */
+
+
+.form-styling{
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-color #fff;
+}
+
+.form-styling h1 {
+  font-size: 60px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-styling h3 {
+  margin: 0px;
+  padding: 0px;
+  color: #999;
+}
+
+
+
+.form-styling div.wrap div {
+  position: relative;
+  margin: 15px 0;
+}
+
+.form-styling label {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  margin: 10px;
+  padding: 0 10px;
+  background-color: #fff;
+  -webkit-transition: top .2s ease-in-out,  font-size .2s ease-in-out;
+  transition: top .2s ease-in-out,  font-size .2s ease-in-out;
+  color: #000;
+}
+
+.form-styling .active {
+  top: -25px;
+  font-size: 16px;
+}
+
+.form-styling input[type=text] {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #d6d6d6;
+  font-size: 16px;
+  background-color: #fff;
+  color: #a09999;
+}
+
+.form-styling input[type=text]:focus {
+  outline: none;
 }
 
 

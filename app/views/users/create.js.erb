@@ -1,6 +1,5 @@
 <% if @user.errors.any? %>
 	$('#errors').html("<%= escape_javascript(render 'msg') %>")
-	$('span').hide();
 <% else %> 
 	$('#new_user')[0].reset();
 	$('#errors').hide();
@@ -8,4 +7,3 @@
 	$('#noticeMsg').text('Successfully created');
 	$('#table').html("<%= escape_javascript(render 'users')%>");
 <% end %>
-

@@ -58,7 +58,7 @@
 			    		<%= f.label :stage %>
 			  		</div>
 			  		<div class="column is-2">
-			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", :selected => 'New Opportunity' %>
+			     		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage" %>
 			  		</div>
 				</div>
 

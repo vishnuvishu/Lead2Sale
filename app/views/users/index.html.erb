@@ -49,7 +49,9 @@
 						<td><%= user.role.try(:name) %></td>
 						<td><%= link_to user_path(user), class: "button is-success" do %> Show <% end %></td> 
 						<td><%= link_to edit_user_path(user), class: "button is-info" do %> Edit <% end %></td>
+						<% unless user.role_id == 1 %>
 						<td><%= link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>
+						<% end %>
 					</tr>
 				<% end %>
 			</tbody>
@@ -66,42 +68,36 @@
 
 		<%= form_for User.new,remote: true do |f| %>
 
-				<div class="columns">
-			  		<div class="column is-3">
-			    		<%= f.label :full_name  %>
-			  		</div>
-			  		<div class="column is-9">
-			     		<%= f.text_field :full_name %><br>
-			     		<span id="userNameError"></span>
-			  		</div>
+			<div class="form-styling">
+
+				<div class="wrap">
+	  				<div>
+	    				<label for="user_full_name">Full Name</label>
+	    				<%= f.text_field :full_name, id: "user_full_name", class: "cool" %><br>
+	  				</div>
+	  				<span id="userNameError"></span>
+
+	  				<div>
+	    				<label for="user_email">Email</label>
+	    				<%= f.text_field :email, id: "user_email", class: "cool" %><br>
+	  				</div>
+	  				<span id="userEmailError"></span>
+
+	  				<div>
+	    				<label for="user_phone">Phone</label>
+	    				<%= f.text_field :phone, id: "user_phone", class: "cool" %><br>
+	  				</div>
+	  				<span id="userPhoneError"></span>
+
 				</div>
 
-				<div class="columns">
-			  		<div class="column is-3">
-			    		<%= f.label :email %>
-			  		</div>
-			  		<div class="column is-9">
-			  			<%= f.text_field :email %>
-			  			<span id="userEmailError"></span>
-			  		</div>
-				</div>
-
+			</div>
 
 				<div class="columns">
-			  		<div class="column is-3">
-			    		<%= f.label :phone %>
-			  		</div>
-			  		<div class="column is-9">
-			     		<%= f.text_field :phone %>
-			     		<span id="userPhoneError"></span>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-3">
+			  		<div class="column is-2">
 			    		<%= f.label :role_id %>
 			  		</div>
-			  		<div class="column is-9">
+			  		<div class="column is-10">
 			     		<%= f.collection_select :role_id, Role.all, :id, :name, prompt: "Select Role" %>
 			     		<span id="userRoleError"></span>
 			  		</div>
@@ -127,6 +123,16 @@
 
 
 <script>
+
+	$('input').on('focusin', function() {
+	  $(this).parent().find('label').addClass('active');
+	});
+
+	$('input').on('focusout', function() {
+	  if (!this.value) {
+	    $(this).parent().find('label').removeClass('active');
+	  }
+	});
 	
 	var userNameHandle = document.getElementById('user_full_name');
 	var userEmailHandle = document.getElementById('user_email');
@@ -160,6 +166,9 @@
 	userPhoneHandle.onblur = function(){
 	  if(userPhoneHandle.value.length == ""){
 	    userPhoneErrorHandle.innerHTML = "cant be blank";
+	  }
+	  else if(userPhoneHandle.value.length == ""){
+	    userEmailErrorHandle.innerHTML = "invalid email format";
 	  }
 	  else{
 	    userPhoneErrorHandle.innerHTML = "";

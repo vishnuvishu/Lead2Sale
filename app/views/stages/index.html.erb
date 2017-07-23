@@ -62,37 +62,30 @@
 
 	<div class="index-form">
 
-  		<%= form_for Stage.new,remote: true do |f| %>
+		<div class="form-styling">
 
-				<div class="columns">
-			  		<div class="column is-4">
-			    		<%= f.label :name  %>
-			  		</div>
-			  		<div class="column is-8">
-			     		<%= f.text_field :name %><br>
-			     		<span id="stageNameError"></span>
-			  		</div>
-				</div>
+  			<%= form_for Stage.new,remote: true do |f| %>
 
-				<div class="columns">
-			  		<div class="column is-4">
-			    		<%= f.label :description %>
-			  		</div>
-			  		<div class="column is-8">
-			  			<%= f.text_field :description %>
-			  			<span id="stageDescriptionError"></span>
-			  		</div>
-				</div>
+				<div class="wrap">
+	  				<div>
+	    				<label for="stage_name">Name</label>
+	    				<%= f.text_field :name, id: "stage_name", class: "cool" %><br>
+	  				</div>
+	  				<span id="stageNameError"></span>
 
-				<div class="columns">
-			  		<div class="column is-4">
-			    		<%= f.label :interest_level %>
-			  		</div>
-			  		<div class="column is-8">
-			     		<%= f.text_field :interest_level %>
-			     		<span id="stageInterestLevelError"></span>
-			  		</div>
+	  				<div>
+	    				<label for="stage_description">Description</label>
+	    				<%= f.text_field :description, id: "stage_description", class: "cool" %><br>
+	  				</div>
+	  				<span id="stageDescriptionError"></span>
+
+	  				<div>
+	    				<label for="stage_interest_level">Interest Level</label>
+	    				<%= f.text_field :interest_level, id: "stage_interest_level", class: "cool" %><br>
+	  				</div>
+	  				<span id="stageInterestLevelError"></span>
 				</div>
+	
 
 				<div class="columns">
 			  		<div class="column is-4 is-offset-8">
@@ -100,7 +93,8 @@
 			  		</div>
 				</div>
 
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 
 	<div id="noticeMsg">
@@ -114,6 +108,16 @@
 
 
 <script>
+
+	$('input').on('focusin', function() {
+	  $(this).parent().find('label').addClass('active');
+	});
+
+	$('input').on('focusout', function() {
+	  if (!this.value) {
+	    $(this).parent().find('label').removeClass('active');
+	  }
+	});
 	
 	var stageNameHandle = document.getElementById('stage_name');
 	var stageDescriptionHandle = document.getElementById('stage_description');
