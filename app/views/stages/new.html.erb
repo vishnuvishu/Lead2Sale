@@ -1,54 +1,6 @@
 <div class="page-styling">
 	<div class="container is-fluid">
 		<h2> Add New Stage </h2> 
-
-			<%= form_for @stage do |f| %>
-
-				<% if @stage.errors.any? %>
-				    <div id="error_explanation">
-				      <h2><%= pluralize(@stage.errors.count, "error") %> prohibited this stage from being saved:</h2>
-
-				      <ul>
-				      <% @stage.errors.full_messages.each do |message| %>
-				        <li><%= message %></li>
-				      <% end %>
-				      </ul>
-				    </div>
-				<% end %>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :name  %>
-			  		</div>
-			  		<div class="column is-2">
-			     		<%= f.text_field :name %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :description %>
-			  		</div>
-			  		<div class="column is-2">
-			  			<%= f.text_field :description %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :interest_level %>
-			  		</div>
-			  		<div class="column is-2">
-			     		<%= f.text_field :interest_level %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2 is-offset-2">
-			    		<%= f.submit "Submit", class: "button is-success"%>
-			  		</div>
-				</div>
-
-			<% end %>
+		<%= render 'form' %>
 	</div>
 </div>

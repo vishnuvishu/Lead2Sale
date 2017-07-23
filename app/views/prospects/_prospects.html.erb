@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% Prospect.new.each_with_index do |prospect, index| %>
+    <% Prospect.all.each_with_index do |prospect, index| %>
           <tr>
             <td><%= index + 1 %></td>
             <td><%= prospect.full_name %></td>

@@ -26,7 +26,7 @@ class StagesController < ApplicationController
 	def update
 		@stage = Stage.find(params[:id])
 		if @stage.update_attributes(stage_params)
-			redirect_to stage_path(@stage), notice:" successfully updated"
+			redirect_to stages_path, notice:" successfully updated"
 		else
 			render action: "edit"
 		end

@@ -1,63 +1,6 @@
 <div class="page-styling">
 	<div class="container is-fluid">
 		<h2> Edit New User </h2> 
-
-			<%= form_for @user do |f| %>
-
-				<% if @user.errors.any? %>
-				    <div id="error_explanation">
-				      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-				      <ul>
-				      <% @user.errors.full_messages.each do |message| %>
-				        <li><%= message %></li>
-				      <% end %>
-				      </ul>
-				    </div>
-				<% end %>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :full_name  %>
-			  		</div>
-			  		<div class="column is-2">
-			     		<%= f.text_field :full_name %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :email %>
-			  		</div>
-			  		<div class="column is-2">
-			  			<%= f.text_field :email %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :phone %>
-			  		</div>
-			  		<div class="column is-2">
-			     		<%= f.text_field :phone %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2">
-			    		<%= f.label :role_id %>
-			  		</div>
-			  		<div class="column is-2">
-			     		<%= f.collection_select :role_id, Role.all, :id, :name, prompt: "Select Role" %>
-			  		</div>
-				</div>
-
-				<div class="columns">
-			  		<div class="column is-2 is-offset-2">
-			    		<%= f.submit "Submit", class: "button is-success"%>
-			  		</div>
-				</div>
-
-			<% end %>
+		<%= render 'form' %>
 	</div>
 </div>

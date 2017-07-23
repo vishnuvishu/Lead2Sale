@@ -35,7 +35,7 @@
 	</thead>
 	<tbody>
 		<% @customers.each_with_index do |customer, index| %>
-			<tr  id="customer_<%= customer.id %>">
+			<tr id="customer_<%= customer.id %>">
 				<td><%= index + 1 %></td>
 				<td><%= customer.full_name %></td>
 				<td><%= customer.email %></td>
