@@ -12,10 +12,10 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+			User.invite!(user_params)
 		@user.save
 		# binding.pry
 		# if @user.errors.empty?
-			User.invite!(user_params)
 		# end
 	end
 
