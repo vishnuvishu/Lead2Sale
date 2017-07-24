@@ -4,9 +4,7 @@ class ProspectsController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-		#@prospects = (current_user.role? "Sales Manager") ? Prospect.all : 
-
-		#prospect where managed_by is current_user.managed_by
+		@prospects = (current_user.role? "Sales Manager") ? Prospect.all : current_user.prospects
 	end
 
 	def new

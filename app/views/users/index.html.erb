@@ -1,4 +1,8 @@
 <div class="container is-fluid">
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
  <div class="columns">
   <div class="column is-9">
     <h2 class="title is-3">User Details </h2>
@@ -46,8 +50,7 @@
 						<td><%= user.full_name %></td>
 						<td><%= user.email %></td>
 						<td><%= user.phone %></td>
-						<td><%= user.role.try(:name) %></td>
-						<td><%= link_to user_path(user), class: "button is-success" do %> Show <% end %></td> 
+						<td><%= user.role.try(:name) %></td>	
 						<td><%= link_to edit_user_path(user), class: "button is-info" do %> Edit <% end %></td>
 						<% unless user.role_id == 1 %>
 						<td><%= link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>

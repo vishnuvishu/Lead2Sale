@@ -24,6 +24,12 @@ p.alert{
   color: #e04c4c;
 }
 
+.button.is-danger,
+.button.is-info{
+  height: 30px;
+  font-size: 15px;
+}
+
 
 /* .index-form */
 

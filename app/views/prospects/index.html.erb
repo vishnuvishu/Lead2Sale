@@ -1,4 +1,8 @@
 <div class="container is-fluid">
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
  <div class="columns">
   <div class="column is-9">
     <h2 class="title is-3">Prospect Details </h2>
@@ -54,7 +58,9 @@
 						<td><%= prospect.stage.try(:name) %></td>
 					  	<td><%= User.find(prospect.managed_by).full_name if User.where(id: prospect.managed_by).exists? %></td> 
 						<td><%= link_to edit_prospect_path(prospect), class: "button is-info" do %> Edit <% end %></td>
+						<% if can? :delete, Prospect.new %> 
 						<td><%= link_to prospect_path(prospect), method: :delete, data: { confirm: 'Are you sure?' , remote: true}, class: "button is-danger" do %> Delete <% end %></td>
+						<% end %>
 					</tr>
 				<% end %>
 			</tbody>
@@ -192,6 +198,11 @@
 	  else if(prospectPhoneHandle.value.length != 10){
 	    prospectPhoneErrorHandle.innerHTML = "phone number should be 10 digits";
 	  }
+
+	  else if (isNan(prospectPhoneHandle.value)){
+	    prospectPhoneErrorHandle.innerHTML = "phone number should be a number";
+	  }
+
 	  else{
 	    prospectPhoneErrorHandle.innerHTML = "";
 	  }
