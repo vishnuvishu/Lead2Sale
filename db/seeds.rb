@@ -24,3 +24,5 @@ User.create(email:'admin@gmail.com', password: 'secret123', full_name: 'Administ
 User.create(email:'user1@gmail.com', password: 'secret123', full_name: 'User1', phone: '1234567891', role_id: 2)
 User.create(email:'user2@gmail.com', password: 'secret123', full_name: 'User2', phone: '1234567892', role_id: 2)
 
+
+

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :phone, length: { is: 10 }
   
   def role? role
-      self.role.name ==  role
+      self.role.name == role
   end
 
   def password_required?

@@ -9,6 +9,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'cancancan', '~> 2.0'
 gem "chartkick"
+gem "pry"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
